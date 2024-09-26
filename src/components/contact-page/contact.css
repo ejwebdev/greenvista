@@ -1,0 +1,69 @@
+.contact {
+    @apply py-[100px];
+}
+.contact-cntnr {
+    @apply flex flex-col-reverse gap-y-[50px] w-priWidth mx-auto;
+    @apply xl:flex-row xl:justify-between xl:items-start;
+}
+.contact-left {
+    @apply relative w-secWidth mx-auto;
+    @apply xl:mx-0 xl:w-[47.5%];
+}
+.contact-left > form {
+    @apply flex flex-col gap-y-[20px];
+}
+.contact-left > form label {
+    @apply flex gap-x-[5px] mb-[10px] font-bold font-secFont text-priBold;
+}
+.contact-left > form label > span {
+    @apply text-[#d62633] font-priFont;
+}
+.contact-left > form input,
+.contact-left > form textarea {
+    @apply w-full p-[14px] text-sm bg-secBG outline-none border border-solid border-[#ebebef] rounded-[5px] text-priBold transition-colors duration-200 ease-out focus:border-priColor placeholder:text-[#808080];
+}
+.contact-left > form textarea {
+    @apply resize-none h-[130px];
+}
+.contact-left > form > button {
+    @apply mr-auto;
+}
+.contact-left > .notification {
+    @apply absolute bottom-[150px] left-1/2 -translate-x-1/2 font-semibold text-sm whitespace-nowrap;
+}
+.contact-left > .notification.success {
+    @apply text-[#53b256];
+}
+.contact-left > .notification.error {
+    @apply text-[#d62633];
+}
+.contact-upper,
+.contact-middle {
+    @apply grid grid-cols-2 gap-x-[20px];
+}
+.contact-right {
+    @apply flex flex-col gap-y-[10px];
+    @apply xl:w-[47.5%];
+}
+.contact-right-grid {
+    @apply grid grid-cols-1 gap-[20px] my-[20px];
+    @apply md:grid-cols-2;
+}
+.contact-right-grid > div {
+    @apply flex gap-x-[20px];
+}
+.contact-right-grid > div > span {
+    @apply text-[40px] text-priColor;
+}
+.contact-right-grid > div > div {
+    @apply flex flex-col gap-y-[10px];
+}
+.contact-right-map {
+    @apply relative w-full h-[350px] shadow-md rounded-[5px] overflow-hidden;
+}
+.mapboxgl-popup-content {
+    @apply font-priFont p-[10px] rounded-[5px];
+}
+.mapboxgl-popup-close-button {
+    @apply hidden;
+}

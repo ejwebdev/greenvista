@@ -1,0 +1,14 @@
+.home {
+    @apply bg-priBGImg bg-cover bg-center bg-no-repeat flex items-center w-full min-h-screen;
+}
+.home-cntnr {
+    @apply flex flex-col w-priWidth mx-auto text-center gap-y-[10px] my-[70px];
+    @apply md:mt-[110px] md:mb-[70px];
+}
+.home-cntnr > h3,
+.home-cntnr > h1 {
+    @apply text-secBold;
+}
+.home-cntnr > button {
+    @apply bg-priBG border-[#f5f5f7] text-priBold hover:bg-secBG hover:border-[#ebebef] mt-[10px] mx-auto;
+}

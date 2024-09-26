@@ -1,0 +1,47 @@
+.properties {
+    @apply bg-secBG py-[100px];
+}
+.properties-cntnr {
+    @apply flex flex-col w-priWidth mx-auto gap-y-[10px];
+}
+.properties-cntnr > h3,
+.properties-cntnr > h2 {
+    @apply text-center;
+}
+.properties-cntnr > p {
+    @apply text-center w-secWidth mx-auto;
+}
+.properties-grid {
+    @apply grid grid-cols-1 mx-auto mt-[40px] gap-x-[30px] gap-y-[25px];
+    @apply md:grid-cols-2 xl:grid-cols-3;
+}
+.properties-grid > div {
+    @apply flex flex-col bg-priBG rounded-[5px] shadow-md transition-transform duration-200 ease-out hover:scale-[1.05];
+}
+.properties-grid > div > img {
+    @apply w-full h-auto rounded-t-[5px];
+}
+.properties-grid-texts {
+    @apply flex flex-col h-full gap-y-[10px] p-[25px];
+}
+.properties-grid-texts > div {
+    @apply flex gap-x-[10px] items-center;
+}
+.properties-grid-texts > div > span {
+    @apply text-[1.25rem] text-priBold;
+}
+.properties-grid-texts > div > p {
+    @apply text-priColor;
+}
+.properties-grid-texts > p {
+    @apply line-clamp-3;
+}
+.properties-grid-link {
+    @apply flex gap-x-[10px] items-center mt-auto mr-auto cursor-pointer;
+}
+.properties-grid-link > span {
+    @apply text-[1.25rem] text-[#808080];
+}
+.properties-grid-link > p {
+    @apply text-[#808080];
+}

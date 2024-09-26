@@ -1,0 +1,38 @@
+.header {
+    @apply flex flex-col justify-center items-center fixed top-0 left-0 right-0 z-50 bg-priBG shadow;
+}
+.header-contact {
+    @apply hidden w-full bg-[#EFF8D6];
+    @apply md:block;
+}
+.nav-top {
+    @apply flex justify-end w-priWidth gap-x-[30px] py-[10px] mx-auto;
+}
+.nav-top > div {
+    @apply flex items-center gap-x-[10px] cursor-pointer transition-all duration-300 ease-out;
+}
+.nav-top > div > span {
+    @apply text-priBold text-[20px];
+}
+.nav {
+    @apply flex justify-between items-center h-[70px] w-priWidth;
+}
+.nav > h3 {
+    @apply text-priColor cursor-pointer;
+}
+.nav > ul {
+    @apply absolute flex flex-col w-full top-[70px] gap-y-[30px] py-[30px] bg-priBG transition-all duration-300 ease-out;
+    @apply md:static md:flex-row md:w-auto md:top-auto md:gap-x-[50px] md:py-0 md:bg-inherit md:left-auto;
+}
+.nav > ul > li {
+    @apply w-priWidth mx-auto;
+    @apply md:w-auto;
+}
+.nav-top > div > p,
+.nav > ul > li > a {
+    @apply hover:text-priColor;
+}
+.nav > span {
+    @apply text-[30px] text-priBold;
+    @apply md:hidden;
+}
