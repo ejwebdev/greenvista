@@ -45,15 +45,18 @@ function Header() {
         if (location.pathname === "/") {
             smoothScroll(id);
         } else {
-            navigate("/", { replace: true });
-            setTimeout(() => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.scrollIntoView({ behavior: "auto" });
-                }
-            }, 0);
+            navigate("/", { replace: true, state: { targetId: id } });
         }
     };
+
+    useEffect(() => {
+        if (location.state?.targetId) {
+            const element = document.getElementById(location.state.targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: "auto" });
+            }
+        }
+    }, [location]);
 
     // Detect Scrolling
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
