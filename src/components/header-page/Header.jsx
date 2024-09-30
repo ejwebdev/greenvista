@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./header.css";
 
 const headerContact = [
@@ -29,6 +30,9 @@ function Header() {
         }
     };
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
     // Event Listener
     const navTopLinks = () => {
         smoothScroll("contact");
@@ -37,7 +41,18 @@ function Header() {
     const links = (id, event) => {
         event.preventDefault();
         setIsMenuOpen(false);
-        smoothScroll(id);
+
+        if (location.pathname === "/") {
+            smoothScroll(id);
+        } else {
+            navigate("/", { replace: true });
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: "auto" });
+                }
+            }, 0);
+        }
     };
 
     // Detect Scrolling
