@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./header.css";
 
 const headerContact = [
@@ -14,50 +14,6 @@ const headerContact = [
 ];
 
 function Header() {
-    const refreshPage = () => {
-        window.location.href = "";
-    };
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    const smoothScroll = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    // Event Listener
-    const navTopLinks = () => {
-        smoothScroll("contact");
-    };
-
-    const links = (id, event) => {
-        event.preventDefault();
-        setIsMenuOpen(false);
-
-        if (location.pathname === "/") {
-            smoothScroll(id);
-        } else {
-            navigate("/", { replace: true, state: { targetId: id } });
-        }
-    };
-
-    useEffect(() => {
-        if (location.state?.targetId) {
-            const element = document.getElementById(location.state.targetId);
-            if (element) {
-                element.scrollIntoView({ behavior: "auto" });
-            }
-        }
-    }, [location]);
-
     // Detect Scrolling
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     useEffect(() => {
@@ -75,6 +31,41 @@ function Header() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const refreshPage = () => {
+        window.location.href = "";
+    };
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const smoothScroll = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
+    const navigate = useNavigate();
+
+    // Event Listener
+    const navTopLinks = () => {
+        smoothScroll("contact");
+    };
+
+    const links = (id, event) => {
+        event.preventDefault();
+        setIsMenuOpen(false);
+
+        if (window.location.pathname === "/") {
+            smoothScroll(id);
+        } else {
+            navigate("/", { replace: true });
+            setTimeout(() => smoothScroll(id), 0);
+        }
+    };
 
     return (
         <header className="header">
