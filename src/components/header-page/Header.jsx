@@ -10,6 +10,7 @@ const headerContact = [
     {
         icon: "call",
         desc: "+63977-434-5155",
+        link: "tel:09774345155",
     },
 ];
 
@@ -51,10 +52,6 @@ function Header() {
     const navigate = useNavigate();
 
     // Event Listener
-    const navTopLinks = () => {
-        smoothScroll("contact");
-    };
-
     const links = (id, event) => {
         event.preventDefault();
         setIsMenuOpen(false);
@@ -76,12 +73,12 @@ function Header() {
             >
                 <div className="nav-top">
                     {headerContact.map((headerContact, index) => (
-                        <div key={index} onClick={navTopLinks}>
+                        <a key={index} href={headerContact.link}>
                             <span className="material-symbols-rounded">
                                 {headerContact.icon}
                             </span>
                             <p>{headerContact.desc}</p>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </div>

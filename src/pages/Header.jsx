@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/header-page/Header.jsx";
+import HeaderNav from "../components/header-page/Header.jsx";
 
 function Layout() {
     return (
         <div>
-            <Header />
+            <HeaderNav />
             <Outlet />
         </div>
     );

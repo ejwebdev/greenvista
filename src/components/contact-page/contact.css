@@ -58,6 +58,9 @@
 .contact-right-grid > div > div {
     @apply flex flex-col gap-y-[10px];
 }
+.contact-right-grid > div > div > a {
+    @apply hover:text-priColor;
+}
 .contact-right-map {
     @apply relative w-full h-[350px] shadow-md rounded-[5px] overflow-hidden;
 }

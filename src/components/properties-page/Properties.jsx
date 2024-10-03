@@ -10,21 +10,21 @@ const properties = [
         title: "GreenVista Porac",
         loc: "Porac, Pampanga",
         desc: "Experience modern living in Porac, Pampanga with spacious and durable homes.",
-        link: "details",
+        link: "price-lists",
     },
     {
         img: properties2,
         title: "GreenVista Balanga",
         loc: "Balanga, Bataan",
         desc: "Modern homes in Balanga, Bataan with comfort and convenience.",
-        link: "details",
+        link: "price-lists",
     },
     {
         img: properties3,
         title: "GreenVista Bamban",
         loc: "Bamban, Tarlac",
         desc: "Modern homes in Bamban, Tarlac offering comfort, convenience, and tranquility.",
-        link: "details",
+        link: "price-lists",
     },
 ];
 

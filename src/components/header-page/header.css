@@ -8,10 +8,10 @@
 .nav-top {
     @apply flex justify-end w-priWidth gap-x-[30px] py-[10px] mx-auto;
 }
-.nav-top > div {
-    @apply flex items-center gap-x-[10px] cursor-pointer transition-all duration-300 ease-out;
+.nav-top > a {
+    @apply flex items-center gap-x-[10px] transition-all duration-300 ease-out;
 }
-.nav-top > div > span {
+.nav-top > a > span {
     @apply text-priBold text-[20px];
 }
 .nav {

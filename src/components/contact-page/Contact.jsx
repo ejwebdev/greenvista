@@ -14,6 +14,7 @@ const contactRight = [
         icon: "perm_phone_msg",
         title: "Our Contact",
         desc: "+63977-434-5155",
+        link: "tel:09774345155",
     },
 ];
 
@@ -185,7 +186,9 @@ function Contact() {
                                 </span>
                                 <div>
                                     <h3>{contactRight.title}</h3>
-                                    <p>{contactRight.desc}</p>
+                                    <a href={contactRight.link}>
+                                        {contactRight.desc}
+                                    </a>
                                 </div>
                             </div>
                         ))}
