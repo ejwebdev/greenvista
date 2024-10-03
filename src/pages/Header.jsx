@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import HeaderNav from "../components/header-page/Header.jsx";
 
-function Layout() {
+function Header() {
     return (
         <div>
             <HeaderNav />
@@ -10,4 +10,4 @@ function Layout() {
     );
 }
 
-export default Layout;
+export default Header;
