@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
@@ -42,6 +43,11 @@ function Header() {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
     const smoothScroll = (id) => {
         const element = document.getElementById(id);
         if (element) {
@@ -55,6 +61,7 @@ function Header() {
     const links = (id, event) => {
         event.preventDefault();
         setIsMenuOpen(false);
+        setIsDropdownOpen(false);
 
         if (window.location.pathname === "/") {
             smoothScroll(id);
@@ -62,6 +69,11 @@ function Header() {
             navigate("/", { replace: true });
             setTimeout(() => smoothScroll(id), 0);
         }
+    };
+
+    const pageClick = () => {
+        setIsMenuOpen(false);
+        setIsDropdownOpen(false);
     };
 
     return (
@@ -97,11 +109,36 @@ function Header() {
                     </li>
                     <li>
                         <a
-                            href="#properties"
-                            onClick={(e) => links("properties", e)}
+                            href=""
+                            onClick={(e) => {
+                                e.preventDefault();
+                                toggleDropdown();
+                            }}
                         >
-                            Properties
+                            Explore Homes
+                            <span className="material-symbols-rounded">
+                                keyboard_arrow_down
+                            </span>
                         </a>
+                        <ul
+                            className={`dropdown ${
+                                isDropdownOpen ? "open" : "hidden"
+                            }`}
+                        >
+                            <li>
+                                <a
+                                    href="#properties"
+                                    onClick={(e) => links("properties", e)}
+                                >
+                                    Properties
+                                </a>
+                            </li>
+                            <li>
+                                <Link to="price-lists" onClick={pageClick}>
+                                    House and Lot
+                                </Link>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a
