@@ -9,6 +9,7 @@ const contactRight = [
         icon: "home_work",
         title: "Our Address",
         desc: "Floridablanca, Pampanga",
+        link: "",
     },
     {
         icon: "perm_phone_msg",

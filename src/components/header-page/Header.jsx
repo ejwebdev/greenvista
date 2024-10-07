@@ -7,6 +7,7 @@ const headerContact = [
     {
         icon: "location_on",
         desc: "Floridablanca, Pampanga",
+        link: "",
     },
     {
         icon: "call",
