@@ -19,7 +19,7 @@ const headerContact = [
 function Header() {
     // Scroll-based Header Position
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isHeaderTop, setIsHeaderTop] = useState(false);
+    const [isHeaderTop, setIsHeaderTop] = useState(true);
 
     useEffect(() => {
         const handleScroll = debounce(() => {
