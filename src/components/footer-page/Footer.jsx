@@ -1,27 +1,28 @@
+import { Link } from "react-router-dom";
 import "./footer.css";
 
 const footerTopLinks = [
     {
         title: "Company",
         links: [
-            { href: "", name: "Brand History" },
-            { href: "", name: "Careers" },
-            { href: "", name: "Testimonials" },
+            { href: "/", name: "Brand History" },
+            { href: "/", name: "Careers" },
+            { href: "/", name: "Testimonials" },
         ],
     },
     {
         title: "Explore Homes",
         links: [
-            { href: "", name: "Lifescapes" },
-            { href: "", name: "House and Lot" },
-            { href: "", name: "Condominium" },
+            { href: "/", name: "Lifescapes" },
+            { href: "/", name: "House and Lot" },
+            { href: "/", name: "Condominium" },
         ],
     },
     {
         title: "Useful Links",
         links: [
-            { href: "#aboutus", name: "About Us" },
-            { href: "#properties", name: "Properties" },
+            { href: "/aboutus", name: "About Us" },
+            { href: "/properties", name: "Properties" },
             {
                 href: "https://forms.gle/2qitqHSL12dKCgcBA",
                 target: "_blank",
@@ -52,15 +53,9 @@ const footerTopLinks = [
 ];
 
 function Footer() {
-    // Smooth scroll
-    const smoothScroll = (event, href) => {
-        if (href.startsWith("#")) {
-            event.preventDefault();
-            const targetElement = document.getElementById(href.substring(1));
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-            }
-        }
+    // Event Listener
+    const pageLinks = () => {
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -73,16 +68,22 @@ function Footer() {
                             <ul>
                                 {section.links.map((link, linkIndex) => (
                                     <li key={linkIndex}>
-                                        <a
-                                            href={link.href}
-                                            target={link.target || "_self"}
-                                            rel="noopener noreferrer"
-                                            onClick={(e) =>
-                                                smoothScroll(e, link.href)
-                                            }
-                                        >
-                                            {link.name}
-                                        </a>
+                                        {link.target ? (
+                                            <a
+                                                href={link.href}
+                                                target={link.target}
+                                                rel="noopener noreferrer"
+                                            >
+                                                {link.name}
+                                            </a>
+                                        ) : (
+                                            <Link
+                                                to={link.href}
+                                                onClick={pageLinks}
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        )}
                                     </li>
                                 ))}
                             </ul>

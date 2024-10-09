@@ -86,7 +86,7 @@ function Contact() {
     }, []);
 
     return (
-        <section className="contact" id="contact">
+        <section className="contact">
             <div className="contact-cntnr">
                 <div className="contact-left">
                     <form id="contact-form" onSubmit={sendEmail}>

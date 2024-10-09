@@ -1,5 +1,5 @@
 .header {
-    @apply flex flex-col justify-center items-center fixed top-0 left-0 right-0 z-50 bg-priBG shadow;
+    @apply flex flex-col justify-center items-center top-0 left-0 right-0 z-50 bg-priBG shadow;
 }
 .header-contact {
     @apply hidden w-full bg-[#EFF8D6];

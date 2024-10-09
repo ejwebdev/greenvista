@@ -1,5 +1,5 @@
 .properties {
-    @apply bg-secBG py-[100px];
+    @apply bg-secBG py-[80px];
 }
 .properties-cntnr {
     @apply flex flex-col w-priWidth mx-auto gap-y-[10px];
@@ -18,7 +18,7 @@
 .properties-grid > div {
     @apply flex flex-col bg-priBG rounded-[5px] shadow-md transition-transform duration-200 ease-out hover:scale-[1.05];
 }
-.properties-grid > div > img {
+.properties-grid > div img {
     @apply w-full h-auto rounded-t-[5px];
 }
 .properties-grid-texts {

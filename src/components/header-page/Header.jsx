@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import debounce from "lodash/debounce";
 import "./header.css";
 
 const headerContact = [
@@ -17,16 +17,24 @@ const headerContact = [
 ];
 
 function Header() {
-    // Detect Scrolling
-    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+    // Scroll-based Header Position
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isHeaderTop, setIsHeaderTop] = useState(false);
+
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY === 0) {
-                setIsHeaderVisible(true);
+        const handleScroll = debounce(() => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
             } else {
-                setIsHeaderVisible(false);
+                setIsScrolled(false);
             }
-        };
+
+            if (window.scrollY === 0) {
+                setIsHeaderTop(true);
+            } else {
+                setIsHeaderTop(false);
+            }
+        }, 50);
 
         window.addEventListener("scroll", handleScroll);
 
@@ -49,39 +57,22 @@ function Header() {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
-    const smoothScroll = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
-    const navigate = useNavigate();
+    const location = useLocation();
+    const header =
+        location.pathname === "/" ? (isScrolled ? "fixed" : "fixed") : "sticky";
 
     // Event Listener
-    const links = (id, event) => {
-        event.preventDefault();
+    const pageLinks = () => {
         setIsMenuOpen(false);
         setIsDropdownOpen(false);
-
-        if (window.location.pathname === "/") {
-            smoothScroll(id);
-        } else {
-            navigate("/", { replace: true });
-            setTimeout(() => smoothScroll(id), 0);
-        }
-    };
-
-    const pageClick = () => {
-        setIsMenuOpen(false);
-        setIsDropdownOpen(false);
+        window.scrollTo(0, 0);
     };
 
     return (
-        <header className="header">
+        <header className={`header ${header}`}>
             <div
                 className={`header-contact ${
-                    isHeaderVisible ? "visible" : "hidden"
+                    isHeaderTop ? "visible" : "hidden"
                 }`}
             >
                 <div className="nav-top">
@@ -99,14 +90,14 @@ function Header() {
                 <h3 onClick={refreshPage}>GreenVista</h3>
                 <ul className={isMenuOpen ? "left-0" : "-left-[200%]"}>
                     <li>
-                        <a href="#home" onClick={(e) => links("home", e)}>
+                        <Link to="/" onClick={pageLinks}>
                             Home
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#aboutus" onClick={(e) => links("aboutus", e)}>
+                        <Link to="/aboutus" onClick={pageLinks}>
                             About Us
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <a
@@ -127,15 +118,12 @@ function Header() {
                             }`}
                         >
                             <li>
-                                <a
-                                    href="#properties"
-                                    onClick={(e) => links("properties", e)}
-                                >
+                                <Link to="/properties" onClick={pageLinks}>
                                     Properties
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <Link to="price-lists" onClick={pageClick}>
+                                <Link to="/house-and-lot" onClick={pageLinks}>
                                     House and Lot
                                 </Link>
                             </li>
@@ -151,9 +139,9 @@ function Header() {
                         </a>
                     </li>
                     <li>
-                        <a href="#contact" onClick={(e) => links("contact", e)}>
+                        <Link to="/contact" onClick={pageLinks}>
                             Contact
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 <span className="material-symbols-rounded" onClick={toggleMenu}>

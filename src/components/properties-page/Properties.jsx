@@ -10,27 +10,27 @@ const properties = [
         title: "GreenVista Porac",
         loc: "Porac, Pampanga",
         desc: "Experience modern living in Porac, Pampanga with spacious and durable homes.",
-        link: "price-lists",
+        link: "/house-and-lot",
     },
     {
         img: properties2,
         title: "GreenVista Balanga",
         loc: "Balanga, Bataan",
         desc: "Modern homes in Balanga, Bataan with comfort and convenience.",
-        link: "price-lists",
+        link: "/house-and-lot",
     },
     {
         img: properties3,
         title: "GreenVista Bamban",
         loc: "Bamban, Tarlac",
         desc: "Modern homes in Bamban, Tarlac offering comfort, convenience, and tranquility.",
-        link: "price-lists",
+        link: "/house-and-lot",
     },
 ];
 
 function Properties() {
     return (
-        <section className="properties" id="properties">
+        <section className="properties">
             <div className="properties-cntnr">
                 <h3>Properties</h3>
                 <h2>House and Lot</h2>
@@ -43,11 +43,18 @@ function Properties() {
                 <div className="properties-grid">
                     {properties.map((properties, index) => (
                         <div key={index}>
-                            <img
-                                src={properties.img}
-                                alt="GreenVista Properties"
-                                draggable="false"
-                            />
+                            <Link
+                                to={properties.link}
+                                onClick={() => {
+                                    window.scrollTo(0, 0);
+                                }}
+                            >
+                                <img
+                                    src={properties.img}
+                                    alt="GreenVista Properties"
+                                    draggable="false"
+                                />
+                            </Link>
                             <div className="properties-grid-texts">
                                 <h3>{properties.title}</h3>
                                 <div>
@@ -60,6 +67,9 @@ function Properties() {
                                 <Link
                                     to={properties.link}
                                     className="properties-grid-link"
+                                    onClick={() => {
+                                        window.scrollTo(0, 0);
+                                    }}
                                 >
                                     <span className="material-symbols-rounded">
                                         arrow_outward
