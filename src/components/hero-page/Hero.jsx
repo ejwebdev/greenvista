@@ -12,10 +12,11 @@ function Hero() {
         <section className="home">
             <div className="home-cntnr">
                 <h1>Live Green, Dream in GreenVista</h1>
-                <h3>
+                <p>
                     House and lot for every Filipino&apos;s dream of modern,
-                    comfortable living.
-                </h3>
+                    comfortable living, designed for families seeking style,
+                    functionality, and affordability in homes.
+                </p>
                 <button onClick={contactClick}>INQUIRE NOW</button>
             </div>
         </section>
