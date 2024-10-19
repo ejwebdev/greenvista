@@ -28,7 +28,7 @@
     @apply relative w-priWidth mx-auto;
     @apply md:w-auto md:flex md:h-full;
 }
-.nav-top > div > p {
+.nav-top > a > p {
     @apply hover:text-priColor;
 }
 .nav > ul > li a {
@@ -45,11 +45,6 @@
 .nav .dropdown.open {
     @apply flex;
 }
-.nav > span {
-    @apply text-[30px] text-priBold;
-    @apply md:hidden;
-}
-
 .nav > span {
     @apply text-[30px] text-priBold;
     @apply md:hidden;
