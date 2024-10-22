@@ -43,12 +43,7 @@ function Properties() {
                 <div className="properties-grid">
                     {properties.map((properties, index) => (
                         <div key={index}>
-                            <Link
-                                to={properties.link}
-                                onClick={() => {
-                                    window.scrollTo(0, 0);
-                                }}
-                            >
+                            <Link to={properties.link}>
                                 <img
                                     src={properties.img}
                                     alt="GreenVista Properties"
@@ -67,9 +62,6 @@ function Properties() {
                                 <Link
                                     to={properties.link}
                                     className="properties-grid-link"
-                                    onClick={() => {
-                                        window.scrollTo(0, 0);
-                                    }}
                                 >
                                     <span className="material-symbols-rounded">
                                         arrow_outward

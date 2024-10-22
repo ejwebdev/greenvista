@@ -53,11 +53,6 @@ const footerTopLinks = [
 ];
 
 function Footer() {
-    // Event Listener
-    const pageLinks = () => {
-        window.scrollTo(0, 0);
-    };
-
     return (
         <section className="footer">
             <div className="footer-cntnr">
@@ -77,10 +72,7 @@ function Footer() {
                                                 {link.name}
                                             </a>
                                         ) : (
-                                            <Link
-                                                to={link.href}
-                                                onClick={pageLinks}
-                                            >
+                                            <Link to={link.href}>
                                                 {link.name}
                                             </Link>
                                         )}

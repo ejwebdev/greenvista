@@ -47,9 +47,6 @@ function Services() {
                                     <Link
                                         to={services.link}
                                         className="services-grid-link"
-                                        onClick={() => {
-                                            window.scrollTo(0, 0);
-                                        }}
                                     >
                                         <span className="material-symbols-rounded">
                                             arrow_outward

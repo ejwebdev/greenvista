@@ -5,7 +5,6 @@ function Hero() {
     const navigate = useNavigate();
     const contactClick = () => {
         navigate("/contact");
-        window.scrollTo(0, 0);
     };
 
     return (
